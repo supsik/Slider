@@ -1,0 +1,514 @@
+.full-section2{
+	width: 95%;
+	margin: 10px auto 0 auto;
+	padding: 0;
+	background-color: white;
+	border-radius: 5px;
+	margin-bottom: 10px
+}
+
+.price-desktop
+{
+	display: none;
+}
+
+.newadmissions-header
+{
+	@include AlignCenter;
+	justify-content:space-between;
+	padding: 15px 10px;
+	height: 60px;
+	border-bottom: 1px solid rgba(28,41,77,.15);
+	h2
+	{
+		font-size: 20px;
+		font-weight: 800;
+		margin: 0;
+		color: #1C294D;
+	}
+}
+
+.newadmissions-box
+{
+	display: flex;
+	width: 100%;
+	border-bottom: 1px solid rgba(28,41,77,.15);
+}
+
+.newadmissions-item
+{
+	width: 49.9%;
+	height: 100%;
+	@include AlignCenter;
+	flex-direction:column;
+	padding: 20px 11px 20px 10px;
+	&>img
+	{
+		width: 126px;
+		height: 180px;
+		margin-bottom: 15px;
+	}
+
+	&:nth-child(2), &:nth-child(3)
+	{
+		display: none;
+	}
+
+	&~&
+	{
+		width: 50.1%;
+		border-left: 1px solid rgba(28,41,77,.15);;
+	}
+}
+.third-item
+{
+	.price-of-book
+	{
+		display: flex;
+		align-content: flex-end;
+		color: #FD3A3A;
+		span:nth-child(1)
+		{
+			color: rgba(28,41,77,.5);
+			font-size: 12px;
+			margin-left: 8px;
+			position: relative;
+			top: 2px;
+			&::after
+			{
+				display: block;
+				content: '';
+				width: 41px;
+				height: 1px;
+				top: 10px;
+				left: 0.2px;
+				background-color: #FD3A3A;
+				position: absolute;
+				transform: rotate(-5deg);
+				border-radius: 10px;
+			}
+		}
+		span:nth-child(2)
+		{	position: relative;
+			color: #0DB98C;
+			font-size: 12px;
+			margin-left: 8px;
+			position: relative;
+			top: 2px;
+		}
+	}
+}
+
+.newadmissions-book
+{
+	position: relative;
+	margin-bottom: 10px;
+	img
+	{
+		height: 160px;
+	}
+}
+
+.newadmissions-description
+{
+	width: 100%;
+	height: 130px;
+	margin-bottom: 9px;
+	.author-of-book
+	{
+		margin-bottom: 7px;
+	}
+}
+
+.reviews
+{
+	display: flex;
+	flex-direction:column;
+	width: 100%;
+	height: 58px;
+	margin-bottom: 10px;
+}
+
+.reviews-starbox
+{
+	width: 52px;
+	height: 25px;
+	@include AlignCenter;
+	justify-content:center;
+	border-radius: 5px;
+	background-color: rgba(251,192,45,.15);
+	font-size: 12px;
+	color: #FBC02D;
+	margin-bottom: 8px;
+	svg
+	{
+		width: 13px;
+		height: 12px;
+		margin-right: 4px;
+	}
+}
+
+.reviews-recomendbox
+{
+	width: 144px;
+	height: 25px;
+	@include AlignCenter;
+	justify-content:center;
+	border-radius: 5px;
+	background-color: rgba(121,134,203,.15);
+	color: #7986CB;
+	font-size: 12px;
+	font-weight: 600;
+	font-family: 'Roboto';
+	img
+	{
+		margin-right: 6px;
+	}
+}
+
+body .buynfav__adm
+{
+	width: 157px;
+	height: 35px;
+}
+
+body .buynfav-btn__buy__adm
+{
+	width: 117px;
+	height: 35px;
+}
+
+body .buynfav-btn__fav__adm
+{
+	width: 35px;
+	height: 35px;
+}
+
+.newadmissions-footer
+{
+	width: 100%;
+	height: 41px;
+	display: grid;
+	place-items: center;
+	color: #1C294D;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.desktop-footer
+{
+	display: none;
+}
+
+@include mq(420)
+{
+	.name-of-book-mobile
+	{
+		display:none;
+	}
+	.name-of-book-desktop
+	{
+		display: block;
+	}
+	body .buynfav__adm
+	{
+		width: 100%;
+	}
+
+	body .buynfav-btn__buy__adm
+	{
+		width: 82%;
+	}
+}
+
+@include mq(0,420)
+{
+	.name-of-book-desktop{
+		display: none;
+	}
+	.name-of-book-mobile
+	{
+		display:block;
+	}
+}
+
+@include mq(590)
+{
+	.newadmissions-item
+	{
+		height: 460px;
+		padding-left:3%;
+		padding-right:3%;
+	}
+
+	.reviews
+	{
+		flex-direction:row;
+		.reviews-starbox
+		{
+			margin-right: 2vw;
+		}
+	}
+}
+
+@include mq(900)
+{
+	.full-section2
+	{
+		max-width:900px;
+	}
+	.newadmissions-item:not(.newadmissions-item:first-child)
+	{
+		.reviews-starbox
+		{
+			background-color: rgba(255, 163,77, .15);
+			color: #FFA34D;
+			svg path
+			{
+				fill: #FFA34D;
+			}
+		}
+	}
+	.fourth-item
+	{
+		img
+		{
+			position: relative;
+			left: 6px;
+		}
+	}
+	
+	.newadmissions-box .newadmissions-item
+	{
+		width: 33.3%
+	}
+	.newadmissions-item:nth-child(2)
+	{
+		display: flex;
+	}
+
+	.first-item::after, .fourth-item::after
+	{
+		position: absolute;
+		display: grid;
+		place-items: center;
+		content: '1+1=3';
+		font-size: 12px;
+		font-weight: 600;
+		width: 54px;
+		height: 25px;
+		border-radius: 5px;
+		color: #FF4F52;
+		background-color: #FFEEEE;
+		left: -48px;
+		top: 31px;
+		z-index: 2;
+	}
+
+	.first-item::before, .fourth-item::before
+	{
+		width: 86px;
+		height: 25px;
+		content: 'Бестселлер';
+		border-radius: 5px;
+		position: absolute;
+		display: grid;
+		place-items: center;
+		font-size: 12px;
+		font-weight: 600;
+		background-color: #EEE9F7;
+		color: #AC8EE3;
+		left: -43px;
+		top: -4px;
+		z-index: 2;
+	}
+
+	.fourth-item::after, .fourth-item::before
+	{
+		left: -37px;
+	}
+
+	.second-item::before
+	{
+		width: 70px;
+		height: 25px;
+		content: 'Новинка';
+		border-radius: 5px;
+		position: absolute;
+		display: grid;
+		place-items: center;
+		font-size: 12px;
+		font-weight: 600;
+		background-color: #E2F6EC;
+		color: #3DC47E;
+		top: -4px;
+		left: -47px;
+		z-index: 2;
+	}
+}
+
+@include mq(1100)
+{
+.full-section2
+{
+	margin-bottom:30px;
+}
+
+.price-desktop
+{
+	display:block;
+}
+
+.desktop-footer
+{
+	display: grid;
+}
+.mobile-footer
+{
+	display: none;
+}
+
+.price-mobile
+{
+	display: none;
+}
+body .buynfav-btn__buy__adm
+{
+	width: 117px;
+	height: 40px;
+}
+
+body .buynfav-btn__buy__adm
+{
+	width: 117px;
+	height: 40px;
+}
+
+body .buynfav-btn__fav__adm
+{
+	width: 40px;
+	height: 40px;
+}
+	.newadmissions-item
+	{
+		height: auto;
+	}
+	.reviews
+	{
+		height: auto;
+		margin-bottom: 12px;
+	}
+	.full-section2
+	{
+		width: 95%;
+		max-width: 1140px;
+		margin-top: 30px;
+	}
+	.newadmissions-book
+	{
+		position: relative;
+		left: -5px;
+		width: auto;
+		height: 200px;
+		margin-bottom: 15px;
+		img
+		{
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.price-of-book
+	{
+		margin-top: 0;
+	}
+	.newadmissions-description p.author-of-book
+	{
+		margin-bottom: 7px;
+	}
+	.newadmissions-header
+	{
+		padding: 18px 25px;
+	}
+}
+
+@include mq(1220)
+{
+	.newadmissions-item:nth-child(3)
+	{
+		display:flex;
+	}
+	.newadmissions-description
+	{
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.price-of-book
+	{
+		margin-bottom: 0;
+	}
+	.reviews .reviews-starbox
+	{
+		margin-right: 10px;
+		margin-bottom: 0;
+	}
+	body .buynfav__adm
+	{
+		width: 196px;
+		display: flex;
+		justify-content: flex-start;
+		align-self: flex-start;
+	}
+	body .buynfav-btn__buy__adm
+	{
+		width: 146px;
+		margin-right: 10px;
+	}
+	.newadmissions-item
+	{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.newadmissions-item~.newadmissions-item
+	{
+		padding-left: 34px;
+	}
+	.newadmissions-item
+	{
+		padding: 25px 20px;
+		&:first-child
+		{
+			width: 278px;
+		}
+		&:nth-child(2)
+		{
+			width: 291px;
+		}
+		&:nth-child(3)
+		{
+			width: 292px;
+		}
+		&:last-child
+		{
+			width: 277px;
+			padding: 25px 16px 25px 38px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

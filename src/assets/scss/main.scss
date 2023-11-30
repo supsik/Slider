@@ -1,0 +1,206 @@
+/* mixins */
+@import 'base/mixins.scss';
+
+/* base */
+@import 'base/fonts';
+@import 'base/variables';
+@import 'base/normalize';
+@import 'base/typography';
+@import 'base/default';
+
+/* blocks */
+@import '@b/g-select/g-select.scss';
+@import '@b/g-input/g-input.scss';
+@import '@b/g-checkbox/g-checkbox.scss';
+@import '@b/g-button/g-button.scss';
+@import '@b/g-radio/g-radio.scss';
+@import '@b/header/header.scss';
+@import '@b/footer/footer.scss';
+@import '@b/first-section/first-section.scss';
+@import '@b/second-section/second-section.scss';
+@import '@b/third-section/third-section.scss';
+@import '@b/fourth-section/fourth-section.scss';
+@import '@b/fifth-section/fifth-section.scss';
+
+/* @import 'blocks/component/component'; */
+
+/* pages */
+/* @import 'index'; */
+
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: 0;
+	&:before,
+	&:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		color: #1C294D;
+	}
+}
+html
+{
+	line-height: $mainLineHeight;
+	font-size: $mainFontSize;
+	color: $mainFontColor;
+	-webkit-font-smoothing: antialiased;
+}
+
+body
+{
+	font-family: 'Roboto';
+}
+
+main
+{
+	background-color: #F9F9FA;
+	padding-bottom: 20px;
+	position: relative;
+	@include mq(1100)
+	{
+		left: -2px;
+		padding-bottom: 30px;
+	}
+
+}
+
+body .type-of-book
+{
+	font-size: 12px;
+	margin: 0;
+	line-height: 15px;
+	opacity: .5;
+	margin-bottom: 8px;
+	font-family: 'Roboto';
+	color: #1C294D;
+}
+
+body .name-of-book
+{
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 19px;
+	margin: 0;
+	margin-bottom: 8px;
+	font-family: 'Roboto';
+	color: #1C294D;
+}
+
+body .author-of-book
+{
+	font-size: 12px;
+	line-height: 15px;
+	margin-bottom: 8px;
+	font-family: 'Roboto';
+	color: #1C294D;
+}
+
+body .price-of-book
+{
+	font-size: 18px;
+	font-weight: 800;
+	line-height: 20px;
+	font-family: 'Roboto';
+	color: #1C294D;
+}
+
+.buynfav
+{
+	justify-self: flex-start;
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content:space-between;
+	@include mq(1100)
+	{
+		justify-content: flex-start;
+	}
+}
+
+.buynfav-btn
+{
+	@include AlignCenter;
+	justify-content:center;
+	border-radius: 5px;
+	border: 1px solid #EEEEEE;
+	font-size: 14px;
+	color: #1C294D;
+	@include mq(1100)
+	{
+		
+	}
+}
+
+.buynfav-btn__buy
+{
+	width: 265px;
+	height: 40px;
+	font-weight: 600;
+	img
+	{
+		margin-right: 10px;
+	}
+	@include mq(1100)
+	{
+		width: 146px;
+		margin-right: 10px;
+	}
+}
+
+.buynfav-btn__fav
+{
+	width: 35px;
+	height: 35px;
+	@include mq(1100)
+	{
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.btn-box
+{
+	width: 61px;
+	height: 30px;
+	display: flex;
+	border-radius: 5px;
+	border: 1px solid rgba(28,41,77,.15);
+	overflow: hidden;
+	button
+	{
+		position: relative;
+		display: grid;
+		place-items:center;
+		border: 0;
+		height: 28px;
+		&:nth-child(1)
+		{
+			width: 50%;
+			&::after
+			{
+				left: 29px;
+				position: absolute;
+				width: 1px;
+				content: '';
+				height: 28px;
+				background-color: rgba(28,41,77,.15);
+			}
+		}
+		&:nth-child(2)
+		{
+			width: 50%;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

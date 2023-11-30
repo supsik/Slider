@@ -1,0 +1,70 @@
+<header class="container header">
+
+	{# mobile version #}
+	<div class="container header-box">
+		<div class="header-box__left-side">
+			<a href="" class="burger-btn"></a>
+			<img class="status" src="./img/status.png" alt="">
+		</div>
+		<form class="input-box">
+			<input type="text" placeholder="Что будете искать?"><button type="submit"></button>
+		</form>
+		<div class="basket"></div>
+	</div>
+
+	{# desktop version #}
+	<div class="header-desktop">
+		<div class="header-top">
+			<div class="header-top-box">
+				<nav>
+					<ul class="header-top__leftbar">
+						<li class="leftbar-item item__gps">
+							<img src="./svg/gps.svg" alt="">Москва
+						</li>
+						<li class="leftbar-item item__box">
+							<img src="./svg/box.svg" alt="">Доставка и оплата
+						</li>
+						<li class="leftbar-item item__arrow">
+							<img src="./svg/Icon.svg" alt="">Адрес и часы работы
+						</li>
+					</ul>
+				</nav>
+				<nav>
+					<ul class="header-top__rightbar">
+						<li><img src="./svg/mail.svg" alt="">market@estatut.ru</li>
+						<li><img src="./svg/phone.svg" alt="">8 (968) 660-65-50 <img src="./svg/info.svg" alt="" style="margin: 0 0 0 7px;"></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="header-content">
+			<div class="header-content-box">
+				<div class="content-box__top">
+					<div class="leftside">
+						<img src="./img/status.png" alt="">
+						<form class="leftside-form" action=""><input placeholder="Автор, название, ISBN" type="text">
+						<button type="submit">{% include '@assets/svg/search.svg'%}Искать</button>
+						</form>
+					</div>
+					<nav>
+						<ul class="rightside">
+							<li><a class="fav-box" href=""><img src="./svg/fav.svg" alt=""><span>Отложено</span></a></li>
+							<li><a class="smile-box" href=""><img src="./svg/smile.svg" alt=""><span>Войти</span></a></li>
+							<li><a class="cart-box" href=""><img src="./svg/cart.svg" alt=""><span>Корзина</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<nav class="content-box__bottom">
+					<ul>
+						<li><img src="./svg/burbur-menu.svg" alt="">Каталог</li>
+						<li>Авторы</li>
+						<li>Новинки</li>
+						<li><img src="./svg/skidka.svg" alt="">Скидки</li>
+						<li>Партнёрам</li>
+						<li>Мы</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
