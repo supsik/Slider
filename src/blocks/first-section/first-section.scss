@@ -37,10 +37,11 @@
 	width: 100%;
 	max-height: 350px;
 	height: 45vw;
-	background-image: url('#{$svg}/slider-bg.svg');
-	background-size: 100%;
+	background-image: url('#{$img}/Group 1.png');
+	background-size: cover;
 	background-position: center;
 	border-radius: 5px;
+	overflow: hidden;
 	@include mq(760, 1180)
 	{
 		grid-area: 1 / 1 / 2 / 3;
