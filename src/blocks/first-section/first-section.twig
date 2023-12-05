@@ -1,15 +1,23 @@
 <div class="container full-section">
-	<div class="slider" title="ddd">
-		<button class="desktop-slider slider__left-btn" onclick='o2.firstSection.sliderleft()'></button>
-		<nav class="desktop-slider">
-			<ul class="slider-slides desktop-slider">
-				<li class="slider-slides__item first-slide"></li>
-				<li class="slider-slides__item second-slide"></li>
-				<li class="slider-slides__item third-slide"></li>
-				<li class="slider-slides__item fourth-slide"></li>
-			</ul>
-		</nav>
-		<button class="desktop-slider slider__right-btn" style="transform: rotate(180deg);" onclick="o2.firstSection.sliderright()"></button>
+	<div class="slider">
+		<div class="slider-pics">
+			<div class="slider-pics__pic first-pic"></div>
+			<div class="slider-pics__pic second-pic"></div>
+			<div class="slider-pics__pic third-pic"></div>
+			<div class="slider-pics__pic fourth-pic"></div>
+		</div>
+		<div class="slider-navigation desktop-slider">
+			<button onclick="o2.firstSection.leftslide()"></button>
+			<nav class="">
+				<ul class="slider-slides desktop-slider">
+					<li class="slider-slides__item first-slide"></li>
+					<li class="slider-slides__item second-slide"></li>
+					<li class="slider-slides__item third-slide"></li>
+					<li class="slider-slides__item fourth-slide"></li>
+				</ul>
+			</nav>
+			<button onclick="o2.firstSection.rightslide()"></button>
+		</div>
 	</div>
 	<div class="daybook">
 		<div class="daybook-header">

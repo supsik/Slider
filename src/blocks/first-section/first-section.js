@@ -1,49 +1,67 @@
 o2.firstSection =
 {
-	sliderbox : document.querySelector('.slider'),
-	slides : document.querySelectorAll('.slider-slides__item'),
-	i : 0,
+	slider: document.querySelector('.slider-pics'),
+	slides: document.querySelectorAll('.slider-slides__item'), //[0,1,2,3]
+	i: 0,
 	setter()
 	{
-		this.sliderbox.style.backgroundSize = `${this.sliderbox.offsetWidth * 4}px 100%`;
-		this.sliderbox.style.backgroundPositionX = '0px'
+		this.slider.style.left = '0px';
 	},
-	sliderleft()
+	leftslide()
 	{
-		this.sliderbox.style.backgroundPositionX = `calc(${this.sliderbox.style.backgroundPositionX} + ${this.sliderbox.offsetWidth}px`;
-		if (this.i>0){
-			this.i--;
-			this.slides.forEach((element)=>{
-				element.style.opacity = '.5';
-				this.slides[this.i].style.opacity = '1';
-			});
+		let slider = this.slider;
+		let slides = this.slides;
+		this.i--;
+		if(this.i<0)
+		{
+			slider.style.left = `-300%`;
+			this.i = 3;
 		}
 		else
 		{
-			this.i = 3;
-			this.slides.forEach((element)=>{
-				element.style.opacity = '.5';
-				this.slides[this.i].style.opacity = '1';
-		});
-	}},
-	sliderright()
+			slider.style.left = `calc(${slider.style.left} + 100%)`;
+		}
+		slides.forEach((element)=>{
+			element.style.opacity = '.5'
+		})
+		slides[this.i].style.opacity = '1'
+	},
+	rightslide()
 	{
-		this.sliderbox.style.backgroundPositionX = `calc(${this.sliderbox.style.backgroundPositionX} - ${this.sliderbox.offsetWidth}px)`;
-		if (this.i<this.slides.length-1){
-			this.i++;
-			this.slides.forEach((element)=>{
-				element.style.opacity = '.5';
-				this.slides[this.i].style.opacity = '1';
-			});
-		}
-		else{
+		let slider = this.slider;
+		let slides = this.slides;
+		this.i++;
+		if(this.i>3)
+		{
+			slider.style.left = `0px`;
 			this.i = 0;
-			this.slides.forEach((element)=>{
-				element.style.opacity = '.5';
-				this.slides[this.i].style.opacity = '1';
-			});
 		}
+		else
+		{
+			slider.style.left = `calc(${slider.style.left} - 100%)`;
+		}
+		slides.forEach((element)=>{
+			element.style.opacity = '.5'
+		})
+		slides[this.i].style.opacity = '1'
+	},
+	pickslide()
+	{
+		let slider = this.slider;
+		let slides = this.slides;
+		let slidesArr = Array.from(slides);
+		slides.forEach((element)=>{
+			element.addEventListener('click', (event)=>{
+				this.i = slidesArr.indexOf(event.target);
+				slider.style.left = `calc(100% * -${this.i})`
+				slides.forEach((element)=>{
+				element.style.opacity = '.5'
+				})
+				slides[this.i].style.opacity = '1'
+			})
+		})
 	}
-};
+}
 
-o2.firstSection.setter();
+o2.firstSection.setter()
+o2.firstSection.pickslide()
