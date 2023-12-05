@@ -14,7 +14,7 @@ o2.firstSection =
 		this.i--;
 		if(this.i<0)
 		{
-			slider.style.left = `-300%`;
+			slider.style.left = `calc(${slides.length - 1} * -100%)`;
 			this.i = 3;
 		}
 		else
