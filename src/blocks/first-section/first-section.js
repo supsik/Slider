@@ -1,41 +1,49 @@
-const sliderbox = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slider-slides__item')
-sliderbox.style.backgroundPositionX = '1500px';
-let i = 0;
-
-window.o2.sliderleft = function(){
-	sliderbox.style.backgroundPositionX = `calc(${sliderbox.style.backgroundPositionX} + 750px)`;
-	if (i>0){
-		i--;
-		slides.forEach((element)=>{
-			element.style.opacity = '.5';
-			slides[i].style.opacity = '1';
-		});
-	}
-	else
+o2.firstSection =
+{
+	sliderbox : document.querySelector('.slider'),
+	slides : document.querySelectorAll('.slider-slides__item'),
+	i : 0,
+	setter()
 	{
-		i = 3;
-		slides.forEach((element)=>{
-			element.style.opacity = '.5';
-			slides[i].style.opacity = '1';
+		this.sliderbox.style.backgroundSize = `${this.sliderbox.offsetWidth * 4}px 100%`;
+		this.sliderbox.style.backgroundPositionX = '0px'
+	},
+	sliderleft()
+	{
+		this.sliderbox.style.backgroundPositionX = `calc(${this.sliderbox.style.backgroundPositionX} + ${this.sliderbox.offsetWidth}px`;
+		if (this.i>0){
+			this.i--;
+			this.slides.forEach((element)=>{
+				element.style.opacity = '.5';
+				this.slides[this.i].style.opacity = '1';
+			});
+		}
+		else
+		{
+			this.i = 3;
+			this.slides.forEach((element)=>{
+				element.style.opacity = '.5';
+				this.slides[this.i].style.opacity = '1';
 		});
+	}},
+	sliderright()
+	{
+		this.sliderbox.style.backgroundPositionX = `calc(${this.sliderbox.style.backgroundPositionX} - ${this.sliderbox.offsetWidth}px)`;
+		if (this.i<this.slides.length-1){
+			this.i++;
+			this.slides.forEach((element)=>{
+				element.style.opacity = '.5';
+				this.slides[this.i].style.opacity = '1';
+			});
+		}
+		else{
+			this.i = 0;
+			this.slides.forEach((element)=>{
+				element.style.opacity = '.5';
+				this.slides[this.i].style.opacity = '1';
+			});
+		}
 	}
+};
 
-}
-window.o2.sliderright = function(){
-	sliderbox.style.backgroundPositionX = `calc(${sliderbox.style.backgroundPositionX} - 750px)`;
-	if (i<slides.length-1){
-		i++;
-		slides.forEach((element)=>{
-			element.style.opacity = '.5';
-			slides[i].style.opacity = '1';
-		});
-	}
-	else{
-		i = 0;
-		slides.forEach((element)=>{
-			element.style.opacity = '.5';
-			slides[i].style.opacity = '1';
-		});
-	}
-}
+o2.firstSection.setter();

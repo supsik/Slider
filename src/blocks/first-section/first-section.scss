@@ -38,11 +38,9 @@
 	max-height: 350px;
 	height: 45vw;
 	background-image: url('#{$img}/Group 1.png');
-	background-size: cover;
-	background-position-x: 1500px;
 	border-radius: 5px;
 	overflow: hidden;
-	transition: .4s ease-out;
+	transition: .3s ease-out;
 	@include mq(760, 1180)
 	{
 		grid-area: 1 / 1 / 2 / 3;
