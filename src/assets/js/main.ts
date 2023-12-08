@@ -41,7 +41,7 @@ import '@p/form/form.js';
 
 
 /* ==================== Java Script ==================== */
-import '@b/first-section/first-section.js'
+import '@b/g-slider/g-slider.js'
 /* ======================================================== */
 /* ======================== SCSS ========================== */
 
