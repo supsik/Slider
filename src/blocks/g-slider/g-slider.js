@@ -1,58 +1,84 @@
 o2.slider =
 {
-	slider:Array.from(document.querySelectorAll('.slider')),
 	onload()
 	{
-		document.querySelectorAll('.first-pic').forEach((element)=>{
-			element.classList.add('active')
+		document.querySelectorAll('.first-pic').forEach(el=>{
+			el.classList.add('active')
 		})
-		this.slider.forEach((element)=>{
-			element.counter = 0;
-		})
+		let slide = document.querySelector('.third-slide');
+	},
+	sliding(block)
+	{
 	},
 	leftslide(block)
 	{
-		let slide = block.parentElement.parentElement.querySelectorAll('.slider-pics__pic');
-		if(block.parentElement.parentElement == this.slider[0])
+		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
+		let item;
+		let array2 = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
+		array2.forEach(el=>{
+			el.style.opacity = .5;
+		})
+		slider.forEach((element)=>
 		{
-			slide[this.slider[0].counter].style.display = 'none';
-			this.slider[0].counter--;
-			if (this.slider[0].counter<0) {
-				this.slider[0].counter = 3;
+			if (getComputedStyle(element).display == 'block') {
+				item = element;
 			}
-			slide[this.slider[0].counter].style.display = 'block';
-		}
-		if(block.parentElement.parentElement == this.slider[1])
+		})
+		let currentSlide = slider.indexOf(item);
+		slider[currentSlide].classList.remove('active');
+		if (currentSlide==0)
 		{
-			slide[this.slider[1].counter].style.display = 'none';
-			this.slider[1].counter--;
-			if (this.slider[1].counter<0) {
-				this.slider[1].counter = 3;
-			}
-			slide[this.slider[1].counter].style.display = 'block';
+			currentSlide = 3;
+			slider[currentSlide].classList.add('active');
+			array2[currentSlide].style.opacity = 1;
 		}
+		else
+		{
+			slider[currentSlide-1].classList.add('active');
+			array2[currentSlide-1].style.opacity = 1;
+		}
+		this.sliding(block)
 	},
 	rightslide(block)
 	{
-		let slide = block.parentElement.parentElement.querySelectorAll('.slider-pics__pic');
-		if(block.parentElement.parentElement == this.slider[0])
+		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
+		let item;
+		let array2 = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
+		array2.forEach(el=>{
+			el.style.opacity = .5;
+		})
+		slider.forEach((element)=>
 		{
-			slide[this.slider[0].counter].style.display = 'none';
-			this.slider[0].counter++;
-			if (this.slider[0].counter>3) {
-				this.slider[0].counter = 0;
+			if (getComputedStyle(element).display == 'block') {
+				item = element;
 			}
-			slide[this.slider[0].counter].style.display = 'block';
-		}
-		if(block.parentElement.parentElement == this.slider[1])
+		})
+		let currentSlide = slider.indexOf(item);
+		slider[currentSlide].classList.remove('active');
+		if (currentSlide > 2)
 		{
-			slide[this.slider[1].counter].style.display = 'none';
-			this.slider[1].counter++;
-			if (this.slider[1].counter > 3) {
-				this.slider[1].counter = 0;
-			}
-			slide[this.slider[1].counter].style.display = 'block';
+			currentSlide = 0;
+			slider[currentSlide].classList.add('active');
+			array2[currentSlide].style.opacity = 1;
 		}
+		else
+		{
+			slider[currentSlide+1].classList.add('active');
+			array2[currentSlide+1].style.opacity = 1;
+		}
+	},
+	sliderpick(element)
+	{
+		let slider = Array.from(element.closest('.slider').querySelectorAll('.slider-pics__pic'));
+		let array = Array.from(element.closest('.slider').querySelectorAll('.slider-slides__item'));
+		slider.forEach(el=>{
+			el.classList.remove('active')
+		})
+		array.forEach(el=>{
+			el.style.opacity = .5;
+		})
+		slider[array.indexOf(element)].classList.add('active')
+		array[array.indexOf(element)].style.opacity = 1;
 	}
 }
 

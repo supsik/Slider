@@ -70,11 +70,11 @@
 	}
 	.active
 	{
-	display: block;
+		display: block;
 	}
 }
 
-.first-pic
+div.first-pic
 {
 	background-image: url('#{$svg}/2=3.svg');
 }
