@@ -1,7 +1,18 @@
 o2.slider =
 {
-	slide(currentSlide, slider, array, ifElem, crit, calc)
+	slide(block, calcfun, ifElem, crit)
 	{
+		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
+		let item;
+		let array = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
+		slider.forEach((element)=>
+		{
+			if (getComputedStyle(element).display == 'block') {
+				item = element;
+			}
+		})
+		let currentSlide = slider.indexOf(item);
+		slider[currentSlide].classList.remove('active');
 		array.forEach(el=>{
 			el.classList.remove('active');
 		})
@@ -13,8 +24,15 @@ o2.slider =
 		}
 		else
 		{
-			slider[calc].classList.add('active');
-			array[calc].classList.add('active');
+			if (calcfun == '-') {
+				slider[currentSlide - 1].classList.add('active');
+				array[currentSlide - 1].classList.add('active');
+			}
+			else
+			{
+				slider[currentSlide + 1].classList.add('active');
+				array[currentSlide + 1].classList.add('active');
+			}
 		}
 	},
 	switch(element, slider, array)
@@ -24,33 +42,11 @@ o2.slider =
 	},
 	leftslide(block)
 	{
-		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
-		let item;
-		let array = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
-		slider.forEach((element)=>
-		{
-			if (getComputedStyle(element).display == 'block') {
-				item = element;
-			}
-		})
-		let currentSlide = slider.indexOf(item);
-		slider[currentSlide].classList.remove('active');
-		this.slide(currentSlide, slider,array, 0, 3, currentSlide-1)
+		this.slide(block, '-', 0, 3)
 	},
 	rightslide(block)
 	{
-		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
-		let item;
-		let array = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
-		slider.forEach((element)=>
-		{
-			if (getComputedStyle(element).display == 'block') {
-				item = element;
-			}
-		})
-		let currentSlide = slider.indexOf(item);
-		slider[currentSlide].classList.remove('active');
-		this.slide(currentSlide, slider, array, 3, 0, currentSlide+1)
+		this.slide(block, '+', 3, 0)
 	},
 	sliderpick(element)
 	{
