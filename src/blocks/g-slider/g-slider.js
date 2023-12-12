@@ -1,23 +1,32 @@
 o2.slider =
 {
-	onload()
+	slide(currentSlide, slider, array, ifElem, crit, calc)
 	{
-		document.querySelectorAll('.first-pic').forEach(el=>{
-			el.classList.add('active')
+		array.forEach(el=>{
+			el.classList.remove('active');
 		})
-		let slide = document.querySelector('.third-slide');
+		if (currentSlide == ifElem)
+		{
+			currentSlide = crit;
+			slider[currentSlide].classList.add('active');
+			array[currentSlide].classList.add('active');
+		}
+		else
+		{
+			slider[calc].classList.add('active');
+			array[calc].classList.add('active');
+		}
 	},
-	sliding(block)
+	switch(element, slider, array)
 	{
+		slider[array.indexOf(element)].classList.add('active')
+		array[array.indexOf(element)].classList.add('active')
 	},
 	leftslide(block)
 	{
 		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
 		let item;
-		let array2 = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
-		array2.forEach(el=>{
-			el.style.opacity = .5;
-		})
+		let array = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
 		slider.forEach((element)=>
 		{
 			if (getComputedStyle(element).display == 'block') {
@@ -26,27 +35,13 @@ o2.slider =
 		})
 		let currentSlide = slider.indexOf(item);
 		slider[currentSlide].classList.remove('active');
-		if (currentSlide==0)
-		{
-			currentSlide = 3;
-			slider[currentSlide].classList.add('active');
-			array2[currentSlide].style.opacity = 1;
-		}
-		else
-		{
-			slider[currentSlide-1].classList.add('active');
-			array2[currentSlide-1].style.opacity = 1;
-		}
-		this.sliding(block)
+		this.slide(currentSlide, slider,array, 0, 3, currentSlide-1)
 	},
 	rightslide(block)
 	{
 		let slider = Array.from(block.closest('.slider').querySelectorAll('.slider-pics__pic'));
 		let item;
-		let array2 = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
-		array2.forEach(el=>{
-			el.style.opacity = .5;
-		})
+		let array = Array.from(block.parentElement.querySelectorAll('.slider-slides__item'));
 		slider.forEach((element)=>
 		{
 			if (getComputedStyle(element).display == 'block') {
@@ -55,17 +50,7 @@ o2.slider =
 		})
 		let currentSlide = slider.indexOf(item);
 		slider[currentSlide].classList.remove('active');
-		if (currentSlide > 2)
-		{
-			currentSlide = 0;
-			slider[currentSlide].classList.add('active');
-			array2[currentSlide].style.opacity = 1;
-		}
-		else
-		{
-			slider[currentSlide+1].classList.add('active');
-			array2[currentSlide+1].style.opacity = 1;
-		}
+		this.slide(currentSlide, slider, array, 3, 0, currentSlide+1)
 	},
 	sliderpick(element)
 	{
@@ -75,11 +60,8 @@ o2.slider =
 			el.classList.remove('active')
 		})
 		array.forEach(el=>{
-			el.style.opacity = .5;
+			el.classList.remove('active')
 		})
-		slider[array.indexOf(element)].classList.add('active')
-		array[array.indexOf(element)].style.opacity = 1;
+		this.switch(element, slider, array)
 	}
 }
-
-o2.slider.onload()

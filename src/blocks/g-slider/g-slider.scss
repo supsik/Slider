@@ -109,8 +109,9 @@ div.first-pic
 		opacity: .5;
 		border-radius: 2px;
 	}
-	.first-slide
-	{
-		opacity: 1;
-	}
+}
+
+.slider-slides__item.active
+{
+	opacity: 1;
 }
